@@ -3,6 +3,8 @@ import { Context } from "./Context";
 import { MemoryRouter as Router, Routes, Route } from "react-router-dom";
 
 const Home = lazy(() => import("./pages/Home").then(module => ({default:module.Home})))
+const GameSetting = lazy(() => import("./pages/GameSetting").then(module => ({default:module.GameSetting})))
+const Ingame = lazy(() => import("./pages/Ingame").then(module => ({default:module.Ingame})))
 
 function App() {
 
@@ -12,6 +14,7 @@ function App() {
     player1: 1,
     player2: 2,
     currentPlayer: 1,
+    gameMode:null,
     cells:null,
     cellsTaken:0,
     gameOver:true,
@@ -23,15 +26,21 @@ function App() {
       case "RESET":
         return {...initialGameState}
 
+      case "SET_GAME_MODE":
+        return {...state, gameMode:action.gameMode}
+
       case "SET_CELLS":
         return {...state, cells:action.cells}
+
+      case "START_GAME":
+        return {...state, message:action.message, gameOver:false}
 
       case "MOVE_PLAYED":
         return {
           ...state,
-            cellsTaken:action.cellsTaken,
-            currentPlayer:action.currentPlayer,
-            message:action.message,
+          cellsTaken:action.cellsTaken,
+          currentPlayer:action.currentPlayer,
+          message:action.message,
         }
 
       case "END_GAME":
@@ -56,6 +65,8 @@ function App() {
             <Routes>
 
               <Route path="/" element={<Home />} />
+              <Route path="/gameSetting" element={<GameSetting />} />
+              <Route path="/ingame" element={<Ingame />} />
 
             </Routes>
           </Context.Provider>

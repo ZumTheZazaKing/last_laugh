@@ -10,10 +10,6 @@ export const HomeStyles = StyleSheet.create({
         flexDirection: 'column',
         transition:"all 0.5s ease-in-out",
     },
-    nightMode:{
-        color:"#fff",
-        backgroundColor:"#363636"
-    },
     homeMenu:{
         textAlign:"center",
         padding:"10px"
@@ -21,14 +17,17 @@ export const HomeStyles = StyleSheet.create({
     button:{
         border:"none",
         outline:"none",
-        backgroundColor:"lightgrey",
         borderRadius:"5px",
         padding:"5px 10px",
-        fontSize:"16px",
+        fontSize:"20px",
         cursor:"pointer",
+        transition:"all 0.3s ease",
+        ":hover":{
+            transform:"scale(1.2)",
+        }
     },
-    twoPlayers:{backgroundColor:"lightblue"},
-    tutorial:{backgroundColor:"orange"},
+    twoPlayers:{color:"green"},
+    tutorial:{color:"orange"},
     toggleTheme:{
         padding:"10px",
         position:"absolute",

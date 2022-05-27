@@ -8,3 +8,12 @@
 body{
   background-color: whitesmoke;
 }
+
+#nightMode{
+  color:#fff;
+  background-color:#363636
+}
+
+#blue{background-color: lightblue;}
+#red{background-color: lightcoral;}
+#unoccupied{background-color: lightgrey;}

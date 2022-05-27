@@ -2,18 +2,26 @@ import { HomeStyles } from "../styles/HomeStyles";
 import { Context } from "../Context";
 import { useContext } from "react";
 import { css } from "aphrodite";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
 
-  const { nightMode, setNightMode } = useContext(Context);
+  const { nightMode, setNightMode, dispatch } = useContext(Context);
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setNightMode(!nightMode);
     localStorage.setItem("nightMode", JSON.stringify(!nightMode));
   }
 
+  const startGame = (gameMode) => {
+    dispatch({ type: "SET_GAME_MODE", gameMode: gameMode });
+    if(gameMode === "tutorial")return;
+    navigate("/gameSetting");
+  }
+
   return (
-    <div className={css(HomeStyles.container, nightMode ? HomeStyles.nightMode : "")}>
+    <div id={nightMode ? "nightMode" : ""} className={css(HomeStyles.container)}>
       <div className={css(HomeStyles.homeMenu)}>
       <h3 className={css(HomeStyles.toggleTheme)} onClick={toggleTheme}>
         {nightMode ? "Night" : "Light"}
@@ -21,11 +29,11 @@ export const Home = () => {
       <h1>Last Laugh</h1>
       <br/>
         <div>
-          <button className={css([HomeStyles.button])}>VS Computer</button>
-          <br/><br/>
-          <button className={css([HomeStyles.button, HomeStyles.twoPlayers])}>2 Players</button>
-          <br/><br/>
-          <button className={css([HomeStyles.button, HomeStyles.tutorial])}>Tutorial</button>
+          <p onClick={() => startGame("vs_computer")} className={css([HomeStyles.button])}>VS Computer</p>
+          <br/>
+          <p onClick={() => startGame("two_players")} className={css([HomeStyles.button, HomeStyles.twoPlayers])}>2 Players</p>
+          <br/>
+          <p onClick={() => startGame("tutorial")} className={css([HomeStyles.button, HomeStyles.tutorial])}>Tutorial</p>
         </div>
       </div>
     </div>
