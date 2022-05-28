@@ -23,5 +23,11 @@ export const GameSettingStyles = StyleSheet.create({
         ":hover":{
             transform:"scale(1.2)",
         }
+    },
+    back:{
+        position:"absolute",
+        top:0,
+        left:0,
+        padding:"20px"
     }
 })

@@ -19,8 +19,14 @@ export const GameSetting = () => {
         navigate("/ingame");
     }
 
+    const back = () => {
+        dispatch({type:"RESET"})
+        navigate("/")
+    }
+
     return (
         <div id={nightMode ? "nightMode" : ""} className={css(GameSettingStyles.container)}>
+            <p onClick={() => back()} className={css(GameSettingStyles.button, GameSettingStyles.back)}>Back</p>
             <h1>How Many Cells?</h1>
             <br/>
             <div className={css(GameSettingStyles.selection)}>

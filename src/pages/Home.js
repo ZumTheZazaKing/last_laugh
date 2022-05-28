@@ -16,7 +16,6 @@ export const Home = () => {
 
   const startGame = (gameMode) => {
     dispatch({ type: "SET_GAME_MODE", gameMode: gameMode });
-    if(gameMode === "tutorial")return;
     navigate("/gameSetting");
   }
 
@@ -33,7 +32,7 @@ export const Home = () => {
           <br/>
           <p onClick={() => startGame("two_players")} className={css([HomeStyles.button, HomeStyles.twoPlayers])}>2 Players</p>
           <br/>
-          <p onClick={() => startGame("tutorial")} className={css([HomeStyles.button, HomeStyles.tutorial])}>Tutorial</p>
+          <p className={css([HomeStyles.button, HomeStyles.tutorial])}>How To Play</p>
         </div>
       </div>
     </div>
