@@ -63,7 +63,10 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={
+          <div id="loading" className={nightMode ? "loading_dark" : ""}>
+            <h1>Loading...</h1>
+          </div>}>
           <Context.Provider value={{gameState, dispatch, nightMode, setNightMode}}>
             <Routes>
 
