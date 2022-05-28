@@ -25,5 +25,15 @@ export const IngameStyles = StyleSheet.create({
         width:"60px",
         height:"60px",
         cursor:"pointer"
+    },
+    button:{
+        fontSize:"20px",
+        padding:"5px 10px",
+        border:"none",
+        outline:"none",
+        cursor:"pointer",
+        backgroundColor:"lightgrey",
+        borderRadius:"5px",
+        margin:"0 10px"
     }
 });

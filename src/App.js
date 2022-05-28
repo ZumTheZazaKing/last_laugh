@@ -25,6 +25,9 @@ function App() {
     switch (action.type) {
       case "RESET":
         return {...initialGameState}
+      
+      case "PLAY_AGAIN":
+        return {...initialGameState, gameMode: action.gameMode}
 
       case "SET_GAME_MODE":
         return {...state, gameMode:action.gameMode}
