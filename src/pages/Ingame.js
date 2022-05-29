@@ -30,7 +30,7 @@ export const Ingame = () => {
             if(gameState.gameMode === "vs_computer"){
                 setComputerTurn(true);
                 setTimeout(() => {
-                    const computerAmount = gameState.cellsTaken + 2 === gameState.cells ? 1 : Math.floor(Math.random() * (3 - 1)) + 1;
+                    const computerAmount = gameState.cellsTaken + 1 === gameState.cells ? 1 : Math.floor(Math.random() * (3 - 1)) + 1;
                     computerSelectCell(computerAmount, gameState.cellsTaken + 2)
                     setComputerTurn(false);
                 }, 2000);
