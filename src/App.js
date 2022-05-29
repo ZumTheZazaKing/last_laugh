@@ -5,6 +5,7 @@ import { MemoryRouter as Router, Routes, Route } from "react-router-dom";
 const Home = lazy(() => import("./pages/Home").then(module => ({default:module.Home})))
 const GameSetting = lazy(() => import("./pages/GameSetting").then(module => ({default:module.GameSetting})))
 const Ingame = lazy(() => import("./pages/Ingame").then(module => ({default:module.Ingame})))
+const Guide = lazy(() => import("./pages/Guide").then(module => ({default:module.Guide})))
 
 function App() {
 
@@ -73,6 +74,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/gameSetting" element={<GameSetting />} />
               <Route path="/ingame" element={<Ingame />} />
+              <Route path="/guide" element={<Guide />} />
 
             </Routes>
           </Context.Provider>

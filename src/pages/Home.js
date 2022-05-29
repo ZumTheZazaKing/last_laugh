@@ -32,7 +32,7 @@ export const Home = () => {
           <br/>
           <p onClick={() => startGame("two_players")} className={css([HomeStyles.button, HomeStyles.twoPlayers])}>2 Players</p>
           <br/>
-          <p className={css([HomeStyles.button, HomeStyles.tutorial])}>How To Play</p>
+          <p onClick={() => navigate("/guide")} className={css([HomeStyles.button, HomeStyles.tutorial])}>How To Play</p>
         </div>
       </div>
     </div>
